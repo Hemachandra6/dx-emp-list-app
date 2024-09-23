@@ -1,0 +1,34 @@
+<h2 style="text-align: center;"> Employee List </h2>
+<table class="table table-striped" style="box-sizing: border-box; border-radius: 20;">
+    <thead>
+        <tr>
+            <th> Employee Id </th>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Email </th>
+            <th> Department </th>
+            <th> Phone Number </th>
+            <th> Update Action </th>
+            <th> Delete Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let employee of employees" >
+            <td> {{employee.empId}} </td>
+            <td> {{employee.firstName}} </td>
+            <td> {{employee.lastName}} </td>
+            <td> {{employee.email}} </td>
+            <td> {{employee.department}} </td>
+            <td> {{employee.phoneNumber}} </td>
+            <td> 
+                <button type="button" class="btn btn-primary" [routerLink]="['/updateEmployee', employee.empId]">Update</button>
+            </td>
+            <td> 
+                <button type="button" class="btn btn-danger" (click)="deleteEmployee(employee.empId)">Delete</button> 
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style="text-align: center;">
+    <button type="button" routerLink="/addEmployee" routerLinkActive="active">Add Employee</button>
+</div>

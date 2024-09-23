@@ -1,0 +1,40 @@
+<div class="employee-add-form">
+    <h2 style="text-align: center;">Update Employee</h2>
+  
+    <form (ngSubmit)="onSubmit()" #updateEmployeeForm="ngForm">
+
+        <div class="form-group">
+            <label for="firstName">Employee Id</label>
+            <input class="form-control" type="number" id="empId" [(ngModel)]="employee.empId" name="empId" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input class="form-control" type="text" id="firstName" [(ngModel)]="employee.firstName" name="firstName" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input class="form-control" type="text" id="lastName" [(ngModel)]="employee.lastName" name="lastName" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" id="email" [(ngModel)]="employee.email" name="email" required>
+        </div>
+            
+        <div class="form-group">
+            <label for="department">Department</label>
+            <input class="form-control" type="text" id="department" [(ngModel)]="employee.department" name="department" required>
+        </div>
+            
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input class="form-control" type="number" id="phoneNumber" [(ngModel)]="employee.phoneNumber" name="phoneNumber" required>
+        </div><br>
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-success" [disabled]="!updateEmployeeForm.form.valid">Update Employee</button>
+        </div>
+    </form>
+  </div>
+  
