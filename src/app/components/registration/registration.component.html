@@ -1,74 +1,82 @@
 <div class="register-container">
-    <h2 style="text-align: center;">Register New User</h2>
-    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
-      <div class="form-group">
-        <label for="userName">User Name</label>
-        <input
-          type="text"
-          id="userName"
-          class="form-control"
-          name="userName"
-          [(ngModel)]="userModel.username"
-          required
-          #userName="ngModel"
-        />
-        <div *ngIf="userName.invalid && userName.touched" class="error">
-            userName is required.
-        </div>
+  <h2 style="text-align: center;">Register New User</h2>
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+    <!-- User Name Field -->
+    <div class="form-group">
+      <label for="userName">User Name</label>
+      <input
+        type="text"
+        id="userName"
+        class="form-control"
+        name="userName"
+        [(ngModel)]="userModel.username"
+        required
+        #userName="ngModel"
+      />
+      <div *ngIf="userName.invalid && userName.touched" class="error">
+        User Name is required.
       </div>
-  
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          name="email"
-          [(ngModel)]="userModel.email"
-          required
-          email
-          #email="ngModel"
-        />
-        <div *ngIf="email.invalid && email.touched" class="error">
-          Enter a valid email.
-        </div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="userModel.email"
+        required
+        #email="ngModel"
+      />
+      <div *ngIf="email.invalid && email.touched" class="error">
+        Enter a valid email.
       </div>
-  
-      <!-- Password Field -->
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          name="password"
-          [(ngModel)]="userModel.password"
-          required
-          minlength="6"
-          #password="ngModel"
-        />
-        <div *ngIf="password.invalid && password.touched" class="error">
-          Password must be at least 6 characters long.
-        </div>
+    </div>
+
+    <!-- Password Field -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        name="password"
+        [(ngModel)]="userModel.password"
+        required
+        minlength="6"
+        #password="ngModel"
+      />
+      <div *ngIf="password.invalid && password.touched" class="error">
+        Password must be at least 6 characters long.
       </div>
-      <div class="form-group">
-        <label for="role">Role</label>
-        <input
-          type="role"
-          id="role"
-          class="form-control"
-          name="role"
-          [(ngModel)]="userModel.role"
-          required
-          minlength="6"
-          #role="ngModel"
-        />
-      </div><br>
-      <div style="text-align: center;">
-        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">
-          Register
-        </button>
+    </div>
+
+    <!-- Role Field -->
+    <div class="form-group">
+      <label for="role">Role</label>
+      <input
+        type="text"
+        id="role"
+        class="form-control"
+        name="role"
+        [(ngModel)]="userModel.role"
+        required
+        minlength="4"
+        #role="ngModel"
+      />
+      <div *ngIf="role.invalid && role.touched" class="error">
+        Role is required and must be at least 4 characters long.
       </div>
-    </form>
-  </div>
-  
+    </div>
+    <br />
+
+    <!-- Submit Button -->
+    <div style="text-align: center;">
+      <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">
+        Register
+      </button>
+    </div>
+  </form>
+</div>
